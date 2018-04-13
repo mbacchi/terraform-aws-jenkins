@@ -11,7 +11,7 @@ variable "jenkins_master_port" {
 }
 
 variable "environment" {
-  description = "The environement tag to add to Jenkins master instance",
+  description = "The environement tag to add to Jenkins master instance"
   default     = ""
 }
 
@@ -43,8 +43,12 @@ variable "jenkins_security_group_id" {
 }
 
 variable "tags" {
-  type = "map"
+  type        = "map"
   description = "Supply tags you want added to all resources"
-  default = {
-  }
+  default     = {}
+}
+
+variable "user" {
+  description = "The user with which to run the jenkins worker process"
+  default     = "ubuntu"
 }

@@ -1,0 +1,23 @@
+sudo apt-get update
+sudo apt-get install -y libgnome-keyring-dev python-setuptools rpm sysstat htop python-pip openjdk-8-jdk openjdk-8-jre nginx awscli
+sudo apt-get install -y dkms build-essential linux-headers-$(uname -r) clang libdbus-1-dev libgtk2.0-dev libnotify-dev libgconf2-dev  libasound2-dev libcap-dev libcups2-dev libxtst-dev libxss1 libnss3-dev gcc-multilib g++-multilib libxss-dev libpci-dev libpulse-dev libexif-dev
+
+# run these on worker node only
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+chmod 777 nodesource_setup.sh 
+sudo ./nodesource_setup.sh
+sudo apt-get install -y nodejs yarn
+sudo pip install --upgrade pip
+sudo pip install jinja2
+#mkdir /var/lib/jenkins
+#sudo apt-get install -y jenkins
+#sudo fdisk /dev/xvdf
+#sudo mkfs.ext4 /dev/xvdf1
+#sudo mount /dev/xvdf1 /var/lib/jenkins/
+#useradd jenkins -U -s /bin/bash -d /home/jenkins -G sudo
+# THIS NEEDS UNDERSTANDING, why isn't useradd creating the home dir?
+#sudo mkdir /home/jenkins
+#sudo chown -R jenkins:jenkins /home/jenkins
+#mkdir /home/jenkins/.ssh
